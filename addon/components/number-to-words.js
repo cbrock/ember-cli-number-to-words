@@ -6,7 +6,7 @@ import { UP_TO_TWENTY, TENS, SCALES } from '../lib/number-names'
 function toWords (num) {
   // TODO handle leading zeroes
   if (typeof num !== 'number') {
-    num = Number(num, 10);
+    num = Number(num);
     if (!Number.isInteger(num)) {
       throw new TypeError('Argument is not a number, and cannot be converted to one');
     }
