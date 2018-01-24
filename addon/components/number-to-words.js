@@ -1,18 +1,7 @@
 import Component from '@ember/component';
 import layout from '../templates/components/number-to-words';
 import { computed } from '@ember/object';
-
-const UP_TO_TWENTY = [
-  null, 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'
-];
-
-const TENS = [
-  null, null, 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'
-];
-
-const SCALES = [
-  null, 'thousand', 'million', 'billion', 'trillion', 'quadrillion', 'quintillion', 'sextillion', 'septillion', 'octillion', 'nonillion','decillion', 'undecillion', 'duodecillion', 'tredecillion', 'quattuor-decillion', 'quindecillion', 'sexdecillion', 'septen-decillion', 'octodecillion', 'novemdecillion', 'vigintillion', 'centillion'
-];
+import { UP_TO_TWENTY, TENS, SCALES } from '../lib/number-names'
 
 function toWords (num) {
   // TODO handle leading zeroes
