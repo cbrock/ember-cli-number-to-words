@@ -5,20 +5,16 @@ moduleForComponent('number-to-words', 'Integration | Component | number to words
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+test('it renders words correct for well-formatted input', function(assert) {
+  assert.expect(3);
 
-  this.render(hbs`{{number-to-words}}`);
+  this.set('number', 0);
+  this.render(hbs`{{number-to-words number=number}}`);
+  assert.equal(this.$().text().trim(), 'zero');
 
-  assert.equal(this.$().text().trim(), '');
+  this.set('number', 123);
+  assert.equal(this.$().text().trim(), 'one hundred and twenty three');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#number-to-words}}
-      template block text
-    {{/number-to-words}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.set('number', 123456);
+  assert.equal(this.$().text().trim(), 'one hundred and twenty three thousand four hundred and fifty six');
 });
