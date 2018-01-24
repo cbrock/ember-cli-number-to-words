@@ -1,0 +1,1 @@
+export { default } from 'ember-cli-number-to-words/components/number-to-words';
