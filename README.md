@@ -1,6 +1,6 @@
 # ember-cli-number-to-words
 
-This README outlines the details of collaborating on this Ember addon.
+An Ember addon that transforms numbers into English word equivalents
 
 ## Installation
 
