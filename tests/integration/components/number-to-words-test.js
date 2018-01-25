@@ -61,3 +61,12 @@ test('it renders words correctly given eger input', function(assert) {
   this.set('number', '123456');
   assert.equal(this.$().text().trim(), 'one hundred and twenty three thousand four hundred and fifty six');
 });
+
+test('it throws when non-parseable integers are input', function(assert) {
+  assert.expect(1);
+
+  this.set('number', 'foo');
+  assert.throws(() => {
+    this.render(hbs`{{number-to-words number=number}}`);
+  }, TypeError, 'TypeError thrown for non-parseable input');
+});
