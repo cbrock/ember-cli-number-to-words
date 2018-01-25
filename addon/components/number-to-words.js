@@ -35,12 +35,16 @@ function toWords (num) {
   // process each `chunk`
   const words = chunks.map(chunk => chunkToWords(chunk));
 
-  // TODO: Determine if additional "and" is needed?
-
-  let combined = [];
+  const combined = [];
+  // for numbers like `10001` we need to insert an additional "and" during the thousands cycle
+  let andFlag = chunks[0] > 0 && chunks[0] < 100;
   words.forEach((chunk, i) => {
     if (chunk !== 0) {
       combined.unshift(chunk, SCALES[i]);
+      if (andFlag && words.length > 1) {
+        combined.unshift('and');
+        andFlag = false;
+      }
     }
   });
 

@@ -6,7 +6,7 @@ moduleForComponent('number-to-words', 'Integration | Component | number to words
 });
 
 test('it renders words correctly given integer input', function(assert) {
-  assert.expect(7);
+  assert.expect(11);
 
   this.set('number', 0);
   this.render(hbs`{{number-to-words number=number}}`);
@@ -19,11 +19,23 @@ test('it renders words correctly given integer input', function(assert) {
   this.set('number', 13);
   assert.equal(this.$().text().trim(), 'thirteen');
 
+  this.set('number', 85);
+  assert.equal(this.$().text().trim(), 'eighty five');
+
+  this.set('number', 101);
+  assert.equal(this.$().text().trim(), 'one hundred and one');
+
   this.set('number', 107);
   assert.equal(this.$().text().trim(), 'one hundred and seven');
 
   this.set('number', 123);
   assert.equal(this.$().text().trim(), 'one hundred and twenty three');
+
+  this.set('number', 5237);
+  assert.equal(this.$().text().trim(), 'five thousand two hundred and thirty seven');
+
+  this.set('number', 10001);
+  assert.equal(this.$().text().trim(), 'ten thousand and one');
 
   this.set('number', 123456);
   assert.equal(this.$().text().trim(), 'one hundred and twenty three thousand four hundred and fifty six');
