@@ -16,6 +16,10 @@ function toWords (num) {
     return 'zero';
   }
 
+  if (num > 0 && num < 20) {
+    return UP_TO_TWENTY[num];
+  }
+
   // handle negative numbers
   // if `isNegative`, we'll add the word "negative" to the resulting string
   const isNegative = Math.sign(num) === -1;
@@ -66,7 +70,7 @@ function chunkToWords (num) {
     if (units !== 0) {
       words.push(UP_TO_TWENTY[units]);
     }
-  } else if (tens !== 0) {
+  } else if (tensUnits !== 0) {
     words.push(UP_TO_TWENTY[tensUnits]);
   }
 
@@ -76,7 +80,7 @@ function chunkToWords (num) {
 
 export default Component.extend({
   layout,
-  number: 123,
+  number: null,
   words: computed('number', function() {
     // TODO import `ember-cli-string-helpers` to access `htmlSafe()`
     return toWords(this.get('number'));
