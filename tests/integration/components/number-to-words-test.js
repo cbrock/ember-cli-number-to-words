@@ -13,7 +13,6 @@ test('it renders words correctly given integer input', function(assert) {
   assert.equal(this.$().text().trim(), 'zero');
 
   this.set('number', 5);
-  this.render(hbs`{{number-to-words number=number}}`);
   assert.equal(this.$().text().trim(), 'five');
 
   this.set('number', 13);
@@ -52,7 +51,6 @@ test('it renders words correctly given eger input', function(assert) {
   assert.equal(this.$().text().trim(), 'zero');
 
   this.set('number', '5');
-  this.render(hbs`{{number-to-words number=number}}`);
   assert.equal(this.$().text().trim(), 'five');
 
   this.set('number', '123');
